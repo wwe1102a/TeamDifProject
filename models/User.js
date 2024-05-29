@@ -5,11 +5,13 @@ const bcrypt = require('bcrypt')
 
 const UserSchema = new Schema({
     ID:{
-        type:String
+        type:String,
+        required :[true,'Please provide ID']
     }
     ,
     Password:{
-        type:String
+        type:String,
+        required :[true,'Please provide pass']
 
     }
         
@@ -21,8 +23,8 @@ UserSchema.pre('save',function(next){
     bcrypt.hash(user.Password, 10).then(hash=> {
         user.Password = hash
         next()
-    }).catch(error =>{
-        console.log(error(err))
+    }).catch(error=>{
+        console.error(error)
     })
 
 })
