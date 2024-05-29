@@ -15,6 +15,7 @@ const indexControllers = require('./controllers/indexControllers')
 const loginControllers = require('./controllers/loginControllers')
 const registerControllers = require('./controllers/registerControllers')
 const StoreControllers = require('./controllers/StoreControllers')
+const UserControllers = require('./controllers/UserControllers')
 
 
 app.use(express.static('public'))
@@ -30,6 +31,7 @@ app.get('/',indexControllers)
 app.get('/login',loginControllers)
 app.get('/register',registerControllers)
 app.post('/User/register',StoreControllers)
+app.post('/User/login',UserControllers)
 
 
 app.listen(4000,() =>{
