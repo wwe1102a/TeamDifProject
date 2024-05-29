@@ -1,3 +1,10 @@
 <!DOCTYPE html>
 <head>Home</head>
-<a href="/login">login</a>
+
+<% if (loggedIn) { %>
+    <a href="/logout">logout</a>
+  <% } %>
+
+  <% if (!loggedIn) { %>
+    <a href="/login">login</a>
+  <% } %>

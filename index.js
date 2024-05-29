@@ -10,12 +10,16 @@ mongoose.connect('mongodb+srv://wwe1102:1908p1908@cluster0.lohchlt.mongodb.net/?
     useNewUrlParser : true 
 })
 
+global.loggedIn = null
+
+
 //Controllers
 const indexControllers = require('./controllers/indexControllers')
 const loginControllers = require('./controllers/loginControllers')
 const registerControllers = require('./controllers/registerControllers')
 const StoreControllers = require('./controllers/StoreControllers')
 const UserControllers = require('./controllers/UserControllers')
+const logoutControllers = require('./controllers/logout')
 
 
 app.use(express.static('public'))
@@ -25,6 +29,11 @@ app.use(flash())
 app.use(expressSession({
     secret: "node scret"
 }))
+app.use("*",(req,res,next)=>{
+    loggedIn = req.session.userId
+    next()
+
+})
 app.set('view engine','ejs')
 
 app.get('/',indexControllers)
@@ -32,6 +41,7 @@ app.get('/login',loginControllers)
 app.get('/register',registerControllers)
 app.post('/User/register',StoreControllers)
 app.post('/User/login',UserControllers)
+app.get('/logout', logoutControllers)
 
 
 app.listen(4000,() =>{
