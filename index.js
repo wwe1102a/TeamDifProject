@@ -14,6 +14,7 @@ mongoose.connect('mongodb+srv://wwe1102:1908p1908@cluster0.lohchlt.mongodb.net/?
 const indexControllers = require('./controllers/indexControllers')
 const loginControllers = require('./controllers/loginControllers')
 const registerControllers = require('./controllers/registerControllers')
+const StoreControllers = require('./controllers/StoreControllers')
 
 
 app.use(express.static('public'))
@@ -25,6 +26,7 @@ app.set('view engine','ejs')
 app.get('/',indexControllers)
 app.get('/login',loginControllers)
 app.get('/register',registerControllers)
+app.post('/User/register',StoreControllers)
 
 
 app.listen(4000,() =>{
