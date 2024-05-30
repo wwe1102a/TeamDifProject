@@ -20,7 +20,11 @@ const registerControllers = require('./controllers/registerControllers')
 const StoreControllers = require('./controllers/StoreControllers')
 const UserControllers = require('./controllers/UserControllers')
 const logoutControllers = require('./controllers/logout')
+const homeControllers = require('./controllers/homeControllers')
+const addControllers = require('./controllers/addControllers')
 
+// middleware
+const redirectAuth = require('./middleware/redirectAuth')
 
 app.use(express.static('public'))
 app.use(express.json())
@@ -42,6 +46,8 @@ app.get('/register',registerControllers)
 app.post('/User/register',StoreControllers)
 app.post('/User/login',UserControllers)
 app.get('/logout', logoutControllers)
+app.get('/home',homeControllers)
+app.get('/add',addControllers)
 
 
 app.listen(4000,() =>{
