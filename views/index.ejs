@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <head>Home</head>
 
-<% if (loggedIn) { %>
-    <a href="/logout">logout</a>
+<a href="login">login</a>
 
-  <% } %>
 
-  <% if (!loggedIn) { %>
-    <a href="/login">login</a>
 
-  <% } %>
+<style>
+  .active,
+        .collapsible:hover {
+            background-color: #555;
+        }
+
+        .content-hi {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            
+        }
+</style>
+
+<body>
+  <% things.forEach(element => { %>
+      <div style="margin: 30px; justify-content: center;">
+          <img href = 'https://www.siamenamel.com/assets/img/products/plates_bowls/sec-pl024-whb-aaa000.jpg'>
+          <div>
+              <%= "name:" + element.name %>
+              <br>
+              <%= "price:" + element.price %>
+          </div>
+          <br>
+          <button type="button" class="collapsible">details</button>
+          <div class="content-hi">
+              <div>
+                  <br>
+                  <%= "info:" + element.info %>
+              </div>
+          </div>
+      </div>
+      <%}) %>
+</body>
+
+<script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");    
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>

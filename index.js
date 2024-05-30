@@ -22,9 +22,13 @@ const UserControllers = require('./controllers/UserControllers')
 const logoutControllers = require('./controllers/logout')
 const homeControllers = require('./controllers/homeControllers')
 const addControllers = require('./controllers/addControllers')
+const itemsControllers = require('./controllers/items')
+const thingsControllers = require('./controllers/thingControllers')
+
 
 // middleware
-const redirectAuth = require('./middleware/redirectAuth')
+const redirectAuth = require('./middleware/redirectAuth');
+
 
 app.use(express.static('public'))
 app.use(express.json())
@@ -40,7 +44,7 @@ app.use("*",(req,res,next)=>{
 })
 app.set('view engine','ejs')
 
-app.get('/',indexControllers)
+app.get('/',thingsControllers,indexControllers)
 app.get('/login',loginControllers)
 app.get('/register',registerControllers)
 app.post('/User/register',StoreControllers)
@@ -48,6 +52,9 @@ app.post('/User/login',UserControllers)
 app.get('/logout', logoutControllers)
 app.get('/home',homeControllers)
 app.get('/add',addControllers)
+app.post('/User/add',itemsControllers)
+
+
 
 
 app.listen(4000,() =>{
