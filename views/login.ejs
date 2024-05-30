@@ -29,6 +29,35 @@
 
 
     <style>
+      .banner{width: 100%;
+    height: 100vh;
+background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(https://www.siamenamel.com/assets/img/products/plates_bowls/sec-pl022-ylg-aaa000.jpg);
+background-size: cover;
+background-position: center; 
+;}
+.navbar{
+        width: 85%;
+        margin auto;
+        padding: 35px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .navbar ul li{
+        list-style: none;
+        display: inline-block;
+        margin: 0 2px;
+    }
+    .navbar ul li a{
+        text-decoration: none;
+        color: #fff;
+        text-transform: uppercase;
+    }
+    .logo{
+        width: 120px;
+        cursor: pointer;
+    }
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -36,7 +65,14 @@
         -moz-user-select: none;
         user-select: none;
       }
-
+      .content{
+    width: 100%;
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
@@ -111,7 +147,16 @@
     <!-- Custom styles for this template -->
     <link href="/css/signin.css" rel="stylesheet">
   </head>
+  <div class="banner">
+    <div class="navbar">
+        <img src="https://png.pngtree.com/png-vector/20221030/ourmid/pngtree-fork-and-spoon-logo-plate-spoon-restaurant-vector-png-image_39850014.png" class="logo">
+        <ul>
+        <li><a href="login">login</a></li>
+        </ul>
+        </div>
+   
   <body class="d-flex align-items-center py-4 bg-body-tertiary">
+    <div class="content">
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -166,7 +211,7 @@
     
 <main class="form-signin w-100 m-auto">
   <form action="/user/login" method = "POST">
-    <h1 class="h3 mb-3 fw-normal">Please Login</h1>
+    <h1 class="h3 mb-3 fw-normal" >Please Login</h1>
 
     <div class="form-floating">
       <input type="text" name = "ID" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -188,7 +233,7 @@
   </form>
 </main>
 <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+</div>
     </body>
 </html>
 

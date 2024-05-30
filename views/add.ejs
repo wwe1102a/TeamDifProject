@@ -1,5 +1,53 @@
 <!DOCTYPE html>
+<style>
+     .navbar{
+        width: 85%;
+        margin auto;
+        padding: 35px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
+    .navbar ul li{
+        list-style: none;
+        display: inline-block;
+        margin: 0 2px;
+    }
+    .navbar ul li a{
+        text-decoration: none;
+        color: #fff;
+        text-transform: uppercase;
+    }
+    .logo{
+        width: 120px;
+        cursor: pointer;
+    }
+    .banner{width: 100%;
+    height: 100vh;
+background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(https://www.siamenamel.com/assets/img/products/plates_bowls/sec-pl022-ylg-aaa000.jpg);
+background-size: cover;
+background-position: center; 
+;}
+
+.content{
+    width: 100%;
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
+    
+</style>
+<div class="banner">
+    <div class="navbar">
+        <img src="https://png.pngtree.com/png-vector/20221030/ourmid/pngtree-fork-and-spoon-logo-plate-spoon-restaurant-vector-png-image_39850014.png" class="logo">
+        <ul>
+        <li><a href="login">login</a></li>
+        </ul>
+        </div>
+<div class="content">
 <h1>Welcome <%= UserData.ID %></h1>
 <p>you can add here</p>
 
@@ -14,3 +62,4 @@
     <br><br>
     <button type = "submit">submit</button>
 </form>
+</div>
